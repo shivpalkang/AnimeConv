@@ -10,8 +10,8 @@ def parse_args():
     desc = "AnimeGANv2"
     parser = argparse.ArgumentParser(description=desc)
     parser.add_argument('--phase', type=str, default='train', help='train or test ?')
-    parser.add_argument('--dataset', type=str, default='Paprika', help='dataset_name')
-    parser.add_argument('--data_mean', type=list, default=[22.6299,-0.1937,-22.4361], help='data_mean(bgr) from data_mean.py')
+    parser.add_argument('--dataset', type=str, default='Hayao', help='dataset_name')
+    parser.add_argument('--data_mean', type=list, default=[13.1360,-8.6698,-4.4661], help='data_mean(bgr) from data_mean.py')
     parser.add_argument('--light', action='store_true', default=False, help='Use generator_lite')
 
     parser.add_argument('--epoch', type=int, default=101, help='The number of epochs to run')
@@ -26,11 +26,11 @@ def parse_args():
 
     parser.add_argument('--g_adv_weight', type=float, default=300.0, help='Weight about GAN')
     parser.add_argument('--d_adv_weight', type=float, default=300.0, help='Weight about GAN')
-    parser.add_argument('--con_weight', type=float, default=2.0, help='Weight about VGG19')# 1.5 for Hayao, 2.0 for Paprika, 1.2 for Shinkai
+    parser.add_argument('--con_weight', type=float, default=1.5, help='Weight about VGG19')# 1.5 for Hayao, 2.0 for Paprika, 1.2 for Shinkai
     # ------ the follow weight used in AnimeGAN
-    parser.add_argument('--sty_weight', type=float, default=0.6, help='Weight about style')# 2.5 for Hayao, 0.6 for Paprika, 2.0 for Shinkai
+    parser.add_argument('--sty_weight', type=float, default=2.5, help='Weight about style')# 2.5 for Hayao, 0.6 for Paprika, 2.0 for Shinkai
     parser.add_argument('--color_weight', type=float, default=15., help='Weight about color') # 15. for Hayao, 50. for Paprika, 10. for Shinkai
-    parser.add_argument('--tv_weight', type=float, default=0.1, help='Weight about tv')# 1. for Hayao, 0.1 for Paprika, 1. for Shinkai
+    parser.add_argument('--tv_weight', type=float, default=1., help='Weight about tv')# 1. for Hayao, 0.1 for Paprika, 1. for Shinkai
     # ---------------------------------------------
     parser.add_argument('--training_rate', type=int, default=1, help='training rate about G & D')
     parser.add_argument('--gan_type', type=str, default='lsgan', help='[gan / lsgan / wgan-gp / wgan-lp / dragan / hinge')
