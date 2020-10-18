@@ -11,13 +11,13 @@ def parse_args():
     parser = argparse.ArgumentParser(description=desc)
     parser.add_argument('--phase', type=str, default='train', help='train or test ?')
     parser.add_argument('--dataset', type=str, default='Hayao', help='dataset_name')
-    parser.add_argument('--data_mean', type=list, default=[13.1360,-8.6698,-4.4661], help='data_mean(bgr) from data_mean.py')
+    parser.add_argument('--data_mean', type=list, default=[16.4996,-2.7035,-13.7961], help='data_mean(bgr) from data_mean.py')
     parser.add_argument('--light', action='store_true', default=False, help='Use generator_lite')
 
     parser.add_argument('--epoch', type=int, default=101, help='The number of epochs to run')
     parser.add_argument('--init_epoch', type=int, default=10, help='The number of epochs for weight initialization')
     parser.add_argument('--batch_size', type=int, default=12, help='The size of batch size') # if light : batch_size = 20
-    parser.add_argument('--save_freq', type=int, default=1, help='The number of ckpt_save_freq')
+    parser.add_argument('--save_freq', type=int, default=2, help='The number of ckpt_save_freq')
 
     parser.add_argument('--init_lr', type=float, default=2e-4, help='The learning rate')
     parser.add_argument('--g_lr', type=float, default=2e-5, help='The learning rate')
